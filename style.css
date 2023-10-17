@@ -13,29 +13,37 @@ body{
 
 label{
     color: white;
+    font-weight: bold;
 }
 
 input{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-weight: bold;
 }
 
 .formShape{
-    background-image: url(trouNoir.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     max-width: 30%;
     margin-left: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 20px;
     padding: 1%;
+    padding-bottom: 2%;
     border: 1px solid black;
     text-align: center;
-    justify-content: center;
     border-radius: 5%;
 }
 
 h1{
     color: white;
-    margin-left: 20%;
-    margin-top: 10%;
     font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 13%;
+    margin-top: 5%;
 }
+
+
