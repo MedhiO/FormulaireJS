@@ -113,7 +113,6 @@ function validerSimilaritéMotDePasse() {
 
 function validationFinal() {
     var succès = true;
-
     var completionValide = validerCompletionFormulaire();
     var longueurValide = validerLongueurNomPrenom();
     var emailValide = validerEmail();
