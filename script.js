@@ -1,10 +1,10 @@
 function validerCompletionFormulaire() {
-    var nom = document.getElementById("nom").value;
-    var prenom = document.getElementById("prenom").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
-    var completionValide = true;
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let completionValide = true;
 
     if (nom === "") {
         document.getElementById("erreurNom").textContent = "Le champ Nom est requis.";
@@ -45,9 +45,9 @@ function validerCompletionFormulaire() {
 }
 
 function validerLongueurNomPrenom() {
-    var nom = document.getElementById("nom").value;
-    var prenom = document.getElementById("prenom").value;
-    var longueurValide = true;
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let longueurValide = true;
 
     if (nom.length < 3) {
         document.getElementById("erreurLongueurNom").textContent = "Le nom doit contenir au moins 3 caractères.";
@@ -67,10 +67,10 @@ function validerLongueurNomPrenom() {
 }
 
 function validerEmail() {
-    var email = document.getElementById("email").value;
-    var emailValide = true;
+    let email = document.getElementById("email").value;
+    let emailValide = true;
 
-    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailRegex.test(email)) {
         document.getElementById("erreurFormatEmail").textContent = "L'adresse email n'est pas valide.";
         emailValide = false;
@@ -82,10 +82,10 @@ function validerEmail() {
 }
 
 function validerMotDePasse() {
-    var motDePasse = document.getElementById("password").value;
-    var motDePasseValide = true;
+    let motDePasse = document.getElementById("password").value;
+    let motDePasseValide = true;
 
-    var motDePasseRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    let motDePasseRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
     if (!motDePasseRegex.test(motDePasse)) {
         document.getElementById("erreurFormatMotDePasse").textContent = "Le mot de passe doit contenir au moins 8 caractères, y compris des majuscules, des minuscules, des chiffres et des caractères spéciaux.";
         motDePasseValide = false;
@@ -97,9 +97,9 @@ function validerMotDePasse() {
 }
 
 function validerSimilaritéMotDePasse() {
-    var motDePasse = document.getElementById("password").value;
-    var confirmMotDePasse = document.getElementById("confirmPassword").value;
-    var SimilaritéConfirmer = true;
+    let motDePasse = document.getElementById("password").value;
+    let confirmMotDePasse = document.getElementById("confirmPassword").value;
+    let SimilaritéConfirmer = true;
 
     if (motDePasse !== confirmMotDePasse) {
         document.getElementById("erreurFormatConfirmationMotDePasse").textContent = "Les mots de passe ne correspondent pas.";
@@ -112,12 +112,12 @@ function validerSimilaritéMotDePasse() {
 }
 
 function validationFinal() {
-    var succès = true;
-    var completionValide = validerCompletionFormulaire();
-    var longueurValide = validerLongueurNomPrenom();
-    var emailValide = validerEmail();
-    var motDePasseValide = validerMotDePasse();
-    var SimilaritéConfirmer = validerSimilaritéMotDePasse();
+    let succès = true;
+    let completionValide = validerCompletionFormulaire();
+    let longueurValide = validerLongueurNomPrenom();
+    let emailValide = validerEmail();
+    let motDePasseValide = validerMotDePasse();
+    let SimilaritéConfirmer = validerSimilaritéMotDePasse();
 
     if (!completionValide || !longueurValide || !emailValide || !motDePasseValide || !SimilaritéConfirmer) {
         succès = false;
