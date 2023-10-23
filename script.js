@@ -141,5 +141,24 @@ function validationFinal() {
     localStorage.setItem("mail",mailVal);
     localStorage.setItem("new Date",myDate);
 
+    //création de l'objet user
+    const user1 ={
+    nom : usernameVal,
+    mail : mailVal,
+    date : myDate,
+    }
+
+    //envoie dans le localStorage
+    dataUser = localStorage.setItem('datauser',JSON.stringify(user1));
+
+    let user =localStorage.getItem("data user");
+    console.log("donnée :" + user);
+
+    //on vient faire le parse du user pour récuperer tous les éléments de l'objet
+    let objUser=JSON.parse(user)
+    
+    document.getElementById('nom').innerHTML = objUser.nom;
+    document.getElementById('mail').innerHTML = objUser.mail;
+
     return succès;
 }
