@@ -123,42 +123,44 @@ function validationFinal() {
         succès = false;
         event.preventDefault();
     }
-
-    // Récupérer le nom + email + date
-    let usernameVal =document.getElementById("nom").value;
-    let mailVal =document.getElementById("email").value;
-    let myDate = new Date();
-
-    let annee   = now.getFullYear();
-    let mois    = ('0'+(now.getMonth()+1)).slice(-2);
-    let jour    = ('0'+now.getDate()   ).slice(-2);
-    let heure   = ('0'+now.getHours()  ).slice(-2);
-    let minute  = ('0'+now.getMinutes()).slice(-2);
-    let seconde = ('0'+now.getSeconds()).slice(-2);
+        // Récupérer le nom + email + date
+        let usernameVal =document.getElementById("nom").value;
+        let mailVal =document.getElementById("email").value;
+        let dateDuJour = new Date();
     
-    //envoie dans le localStorage
-    localStorage.setItem("nom",usernameVal);
-    localStorage.setItem("mail",mailVal);
-    localStorage.setItem("new Date",myDate);
-
-    //création de l'objet user
-    const user1 ={
-    nom : usernameVal,
-    mail : mailVal,
-    date : myDate,
-    }
-
-    //envoie dans le localStorage
-    dataUser = localStorage.setItem('datauser',JSON.stringify(user1));
-
-    let user =localStorage.getItem("data user");
-    console.log("donnée :" + user);
-
-    //on vient faire le parse du user pour récuperer tous les éléments de l'objet
-    let objUser=JSON.parse(user)
+        let annee   = now.getFullYear();
+        let mois    = ('0'+(now.getMonth()+1)).slice(-2);
+        let jour    = ('0'+now.getDate()   ).slice(-2);
+        let heure   = ('0'+now.getHours()  ).slice(-2);
+        let minute  = ('0'+now.getMinutes()).slice(-2);
+        let seconde = ('0'+now.getSeconds()).slice(-2);
+        
+        //envoie dans le localStorage
+        localStorage.setItem("nom",usernameVal);
+        localStorage.setItem("mail",mailVal);
+        localStorage.setItem("new Date",dateDuJour);
     
-    document.getElementById('nom').innerHTML = objUser.nom;
-    document.getElementById('mail').innerHTML = objUser.mail;
+        //création de l'objet user
+        const user1 ={
+        nom : usernameVal,
+        mail : mailVal,
+        date : dateDuJour,
+        }
+    
+        //envoie dans le localStorage
+        dataUser = localStorage.setItem('datauser',JSON.stringify(user1));
+    
+        let user =localStorage.getItem("datauser");
+        console.log("donnée :" + user);
+    
+        //on vient faire le parse du user pour récuperer tous les éléments de l'objet
+        let objUser=JSON.parse(user)
+        
+        document.getElementById('nomAffiché').innerHTML = objUser.nom;
+        document.getElementById('mailAffiché').innerHTML = objUser.mail;
 
     return succès;
 }
+
+//ajout d'un evenement lors du submit
+document.getElementById("monFormulaire").addEventListener("submit", validationFinal);
