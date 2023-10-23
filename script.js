@@ -124,9 +124,22 @@ function validationFinal() {
         event.preventDefault();
     }
 
+    // Récupérer le nom + email + date
+    let usernameVal =document.getElementById("nom").value;
+    let mailVal =document.getElementById("email").value;
+    let myDate = new Date();
+
+    let annee   = now.getFullYear();
+    let mois    = ('0'+(now.getMonth()+1)).slice(-2);
+    let jour    = ('0'+now.getDate()   ).slice(-2);
+    let heure   = ('0'+now.getHours()  ).slice(-2);
+    let minute  = ('0'+now.getMinutes()).slice(-2);
+    let seconde = ('0'+now.getSeconds()).slice(-2);
+    
+    //envoie dans le localStorage
+    localStorage.setItem("nom",usernameVal);
+    localStorage.setItem("mail",mailVal);
+    localStorage.setItem("new Date",myDate);
+
     return succès;
 }
-
-
-
-
