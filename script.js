@@ -112,7 +112,7 @@ function validerSimilaritéMotDePasse() {
 }
 
 function validationFinal() {
-    let succès = true;
+    let succes = true;
     let completionValide = validerCompletionFormulaire();
     let longueurValide = validerLongueurNomPrenom();
     let emailValide = validerEmail();
@@ -120,12 +120,14 @@ function validationFinal() {
     let SimilaritéConfirmer = validerSimilaritéMotDePasse();
 
     if (!completionValide || !longueurValide || !emailValide || !motDePasseValide || !SimilaritéConfirmer) {
-        succès = false;
-        event.preventDefault();
+        succes = false;
+        e.preventDefault();
     }
         // Récupérer le nom + email + date
         let usernameVal =document.getElementById("nom").value;
+        console.log(usernameVal)
         let mailVal =document.getElementById("email").value;
+        console.log(mailVal)
         let dateDuJour = new Date();
     
         let annee   = now.getFullYear();
@@ -136,31 +138,30 @@ function validationFinal() {
         let seconde = ('0'+now.getSeconds()).slice(-2);
         
         //envoie dans le localStorage
-        localStorage.setItem("nom",usernameVal);
-        localStorage.setItem("mail",mailVal);
-        localStorage.setItem("new Date",dateDuJour);
+        //localStorage.setItem("nom",usernameVal);
+        //localStorage.setItem("mail",mailVal);
+        //localStorage.setItem("new Date",dateDuJour);
     
         //création de l'objet user
         const user1 ={
         nom : usernameVal,
-        mail : mailVal,
-        date : dateDuJour,
+        mail : mailVal
         }
     
         //envoie dans le localStorage
         dataUser = localStorage.setItem('datauser',JSON.stringify(user1));
     
-        let user =localStorage.getItem("datauser");
-        console.log("donnée :" + user);
+        //let user =localStorage.getItem("datauser");
+        //console.log("donnée :" + user);
     
         //on vient faire le parse du user pour récuperer tous les éléments de l'objet
-        let objUser=JSON.parse(user)
+        //let objUser=JSON.parse(user)
         
-        document.getElementById('nomAffiché').innerHTML = objUser.nom;
-        document.getElementById('mailAffiché').innerHTML = objUser.mail;
+        //document.getElementById('span2').innerHTML = objUser.nom;
+        //document.getElementById('span4').innerHTML = objUser.date;
 
-    return succès;
+    return succes;
 }
 
 //ajout d'un evenement lors du submit
-document.getElementById("monFormulaire").addEventListener("submit", validationFinal);
+document.getElementById("formShape").addEventListener("submit", validationFinal);
