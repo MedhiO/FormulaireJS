@@ -9,6 +9,7 @@ body{
     background-image: url(espace.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 
 label{
